@@ -3,6 +3,7 @@
 namespace Learn\Controller;
 
 use Learn\Form\LearnForm;
+use Learn\Form\NextForm;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Learn\Model\Question;
@@ -68,4 +69,27 @@ class LearnController extends AbstractActionController
         echo $quest2->question2();
         echo "Question 2";
     }
+
+    public function nextAction(){
+
+        $form = new NextForm();
+        $answer = array('a','b','c','d');
+
+        if($this->getRequest()->isPost()) {
+      
+            // Retrieve form data from POST variables
+            $data = $this->params()->fromPost();     
+            
+            // ... Do something with the data ...
+           ;	
+            // $data['key'];
+            // echo $data['next'] . "5555"; 
+
+            var_dump($data);
+             
+          } 
+
+
+        return array('form' =>  $form,'answer' => $answer);
+    } 
 }
