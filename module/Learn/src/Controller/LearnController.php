@@ -5,6 +5,7 @@ namespace Learn\Controller;
 use Learn\Form\LearnForm;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Learn\Model\Question;
 
 
 
@@ -58,5 +59,13 @@ class LearnController extends AbstractActionController
         return array('form' =>  $form);
         
 
+    }
+
+    public function question2Action(){
+
+        $quest2 = new Question();
+
+        echo $quest2->question2();
+        echo "Question 2";
     }
 }
