@@ -2,8 +2,11 @@
 
 namespace Learn\Controller;
 
+use Learn\Form\LearnForm;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+
+
 
 class LearnController extends AbstractActionController
 {
@@ -36,5 +39,24 @@ class LearnController extends AbstractActionController
 
         $view = new ViewModel(array('test' => $test));
         return $view;
+    }
+
+    public function testgetAction(){
+
+
+        $form = new LearnForm();
+        
+        if($this->getRequest()->isPost()) {
+      
+            // Retrieve form data from POST variables
+            $data = $this->params()->fromPost();     
+            
+            // ... Do something with the data ...
+            var_dump($data);	  
+          } 
+
+        return array('form' =>  $form);
+        
+
     }
 }

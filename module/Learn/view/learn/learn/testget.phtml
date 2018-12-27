@@ -1,0 +1,16 @@
+<div id="clientformtable">
+<?php 
+$form = $this->form;
+$form->setAttribute('action','/learn/testget');
+$form->prepare();
+
+echo $this->form()->openTag($form);
+
+$client = $form->get('client');
+$submit = $form->get('submit');
+echo $this->formRow($client);
+echo $this->formRow($submit);
+
+echo $this->form()->closeTag();
+?>
+</div>
