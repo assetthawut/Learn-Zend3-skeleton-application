@@ -74,4 +74,36 @@
             $equationString = str_replace("y",$number,$string);
             return $equationString;
         }
+
+
+        public function question1($currentData){
+
+                return $this->findNextAlphabet($currentData);
+
+        }
+
+        public function findNextAlphabet($currentData){
+
+          
+
+
+            // Rule : ((currentPostion + 1) * 2) + currentValue ); 
+            
+             $nextData = [];
+             $currentData = $currentData; 
+             $sizeOfArray = sizeof($currentData);
+
+           
+             $lastValue   = end($currentData);
+            // // cast to intger;
+             $lastValue  = (int)$lastValue ;
+             $nextValue   = ($sizeOfArray * 2) + $lastValue;
+             array_push($currentData,$nextValue);
+             $startData   = $currentData;
+             return $startData;
+            
+            // return view('test.question1',['startData' => $startData]);
+
+
+        }
     }

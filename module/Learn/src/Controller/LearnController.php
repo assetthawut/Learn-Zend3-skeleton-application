@@ -73,19 +73,30 @@ class LearnController extends AbstractActionController
     public function nextAction(){
 
         $form = new NextForm();
-        $answer = array('a','b','c','d');
+        $answer  = [3,5,9,15];
+
+
+
 
         if($this->getRequest()->isPost()) {
       
             // Retrieve form data from POST variables
             $data = $this->params()->fromPost();     
-            
+            $tempData = \explode("|",$data['my-hidden']); 
+            // var_dump( $tempData);
+
+
+            $quest1 = new Question();
+            var_dump($quest1->question1($tempData));
+
+            $answer = $quest1->question1($tempData);
+
             // ... Do something with the data ...
            ;	
             // $data['key'];
             // echo $data['next'] . "5555"; 
+            // convert to  array 
 
-            var_dump($data);
              
           } 
 
