@@ -28,5 +28,6 @@ return [
     'ZendDeveloperTools',
     'Application',
     'Album',
+    'Learn',
 ];
 
