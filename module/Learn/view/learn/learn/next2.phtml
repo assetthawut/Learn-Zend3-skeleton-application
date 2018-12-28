@@ -1,0 +1,32 @@
+<h1>Next</h1>
+
+<div>
+<?php 
+
+// var_dump($this->answer);
+// convert array to string 
+
+// $answer = implode("|",$this->answer);
+$answerStr = json_encode($answer);
+echo $answerStr;
+// echo json_decode(json_encode($answerStr));
+// var_dump($answerStr);
+
+$form = $this->form;
+$form->setAttribute('action','/learn/next2');
+$form->prepare();
+
+echo $this->form()->openTag($form);
+
+$submit = $form->get('next');
+
+$myhidden = $form->get('my-hidden');
+
+$myhidden->setAttribute('value',$answerStr);
+
+echo $this->formRow($myhidden);
+echo $this->formRow($submit);
+
+echo $this->form()->closeTag();
+?>
+</div>

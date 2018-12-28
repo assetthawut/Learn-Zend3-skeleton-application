@@ -82,7 +82,7 @@ class LearnController extends AbstractActionController
       
             // Retrieve form data from POST variables
             $data = $this->params()->fromPost();     
-            $tempData = \explode("|",$data['my-hidden']); 
+            $tempData = explode("|",$data['my-hidden']); 
             // var_dump( $tempData);
 
 
@@ -100,6 +100,43 @@ class LearnController extends AbstractActionController
              
           } 
 
+
+        return array('form' =>  $form,'answer' => $answer);
+    }
+    
+    public function next2Action(){
+
+        $form = new NextForm();
+        $answer = array('1' => 5,'2' => 25,'3' => 325,'4' => 4325);
+        // print_r($answer);
+
+        if($this->getRequest()->isPost()) {
+       
+            $data = $this->params()->fromPost();     
+
+            $tempData = $data['my-hidden'];
+            $tempData = json_decode($tempData);
+
+            $answerObj = [];
+
+            foreach( $tempData as $key => $value){
+
+                // echo("KEY => ".$key);
+                // echo("Value => ".$value);
+                $answerObj[$key] = $value;
+                
+
+            }
+
+            $quest3 = new Question();
+            $answer = $quest3->question3($answerObj);
+            
+            // print_r($tempData);
+
+            var_dump($answer);
+
+            
+        }
 
         return array('form' =>  $form,'answer' => $answer);
     } 

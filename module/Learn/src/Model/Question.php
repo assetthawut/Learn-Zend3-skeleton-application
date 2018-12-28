@@ -106,4 +106,38 @@
 
 
         }
+
+        public function question3($currentData){
+
+
+                $startData = $this->getThenValue($currentData);
+                return $startData;
+
+
+        }
+
+        public function getThenValue($currentData){
+            $currentData =    $currentData;
+            $lastkey     =    $this->getlastKey($currentData);
+            $lastValue   = $currentData[$lastkey];
+            $nextKey     = (int) $lastkey + 1;
+            $nextValue   =  (string)$nextKey.(string)$lastValue;
+            $currentData[$nextKey] = $nextValue ;
+            $startData = $currentData;
+            
+            return $startData;
+            
+        }
+
+
+        public function getlastKey($currentData){
+  
+            end($currentData);
+            $lastkey = key($currentData); 
+            return $lastkey;
+           
+        }
+    
+
+
     }
